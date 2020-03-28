@@ -5,7 +5,7 @@ use Laravel\Lumen\Testing\DatabaseTransactions;
 use App\Item;
 use App\Type;
 
-class TypesTest extends TestCase
+class TypeTest extends TestCase
 {
     use DatabaseMigrations;
 
