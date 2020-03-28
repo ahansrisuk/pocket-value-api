@@ -28,11 +28,8 @@ class ItemsTest extends TestCase
     }
 
     /** @test */
-    public function it_fails_gracefully_when_id_is_not_found()
+    public function it_fails_gracefully_when_item_id_is_not_found()
     {
-        $type = factory(Type::class)->create(['name' => 'fish']);
-        $item = factory(Item::class)->create(['type_id' => $type->id]);
-
         $this->get('/api/items/' . '55555')
             ->seeJson([
                 'error' => true
@@ -41,7 +38,7 @@ class ItemsTest extends TestCase
     }
 
     /** @test */
-    public function it_can_be_retrieved_by_name()
+    public function it_can_be_retrieved_by_item_name()
     {
         $type = factory(Type::class)->create(['name' => 'fish']);
         $item = factory(Item::class)->create(['type_id' => $type->id]);
@@ -56,5 +53,15 @@ class ItemsTest extends TestCase
             ]);
         
     }
+
+        /** @test */
+        public function it_fails_gracefully_when_item_name_is_not_found()
+        {
+            $this->post('/api/items/search', ['itemName' => 'made up item'])
+            ->seeJson([
+                'error' => true
+            ]);
+            
+        }
 
 }

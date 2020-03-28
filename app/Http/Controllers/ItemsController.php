@@ -41,7 +41,18 @@ class ItemsController extends Controller
     public function retrieveByItemName(Request $request)
     {
         $itemName = $request->input('itemName'); 
-        $item = Item::where('name', $itemName)->firstOrFail();
+
+        try {
+
+            $item = Item::where('name', $itemName)->firstOrFail();
+        }
+        catch (Exception $e) {
+            return response()->json([
+                'error' => true,
+                'message' => $e->getMessage()
+            ]);
+        }
+
         return response()->json($this->createItemArray($item));
     }
 
