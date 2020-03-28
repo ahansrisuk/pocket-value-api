@@ -2,7 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\User;
+use App\Item;
 use Faker\Generator as Faker;
 
 /*
@@ -16,9 +16,11 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(User::class, function (Faker $faker) {
+$factory->define(Item::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
-        'email' => $faker->email,
+        'type' => $faker->email,
+        'value' => $faker->numberBetween(1, 5000),
+        'image_path' => $faker->imageUrl()
     ];
 });
