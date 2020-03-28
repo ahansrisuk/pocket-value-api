@@ -2,7 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Item;
+use App\Type;
 use Faker\Generator as Faker;
 
 /*
@@ -16,11 +16,8 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(Item::class, function (Faker $faker) {
+$factory->define(Type::class, function (Faker $faker) {
     return [
-        'name' => 'Loach',
-        'type_id' => 1,
-        'value' => $faker->numberBetween(1, 5000),
-        'image_path' => $faker->imageUrl()
+        'name' => 'fish',
     ];
 });
