@@ -14,5 +14,6 @@ $router->get('/api', function() {
     return response()->json(['message' => 'this is the app root']);
 });
 
+$router->get('/api/items', 'ItemsController@index');
 $router->get('/api/items/{itemId}', 'ItemsController@retrieveByItemId');
 $router->post('/api/items/search', 'ItemsController@retrieveByItemName');
