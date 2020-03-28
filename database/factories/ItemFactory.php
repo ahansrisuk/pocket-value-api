@@ -18,8 +18,8 @@ use Faker\Generator as Faker;
 
 $factory->define(Item::class, function (Faker $faker) {
     return [
-        'name' => 'Loach',
-        'type_id' => 1,
+        'name' => $faker->name,
+        'type_id' => $faker->randomDigitNotNull,
         'value' => $faker->numberBetween(1, 5000),
         'image_path' => $faker->imageUrl()
     ];

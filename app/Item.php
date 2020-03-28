@@ -16,7 +16,8 @@ class Item extends Model
     //     'name', 'email',
     // ];
 
-    public function type() {
+    public function type() 
+    {
         return $this->belongsTo(Type::class);
     }
 
