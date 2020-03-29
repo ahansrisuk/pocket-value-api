@@ -15,5 +15,5 @@ $router->get('/api', function() {
 });
 
 $router->get('/api/items', 'ItemsController@index');
+$router->get('/api/items/search', 'ItemsController@retrieveByItemName');
 $router->get('/api/items/{itemId}', 'ItemsController@retrieveByItemId');
-$router->post('/api/items/search', 'ItemsController@retrieveByItemName');

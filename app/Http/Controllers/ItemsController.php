@@ -48,7 +48,7 @@ class ItemsController extends Controller
      */
     public function retrieveByItemName(Request $request)
     {
-        $itemName = $request->input('itemName'); 
+        $itemName = $request->query('name');
 
         try {
 

@@ -43,7 +43,7 @@ class ItemsTest extends TestCase
         $type = factory(Type::class)->create(['name' => 'fish']);
         $item = factory(Item::class)->create(['type_id' => $type->id]);
 
-        $this->post('/api/items/search', ['itemName' => $item->name])
+        $this->get('/api/items/search?name=' . $item->name)
             ->seeJson([
                 'id' => $item->id,
                 'name' => $item->name,
@@ -57,7 +57,7 @@ class ItemsTest extends TestCase
         /** @test */
         public function it_fails_gracefully_when_item_name_is_not_found()
         {
-            $this->post('/api/items/search', ['itemName' => 'made up item'])
+            $this->get('/api/items/search', ['itemName' => 'made up item'])
             ->seeJson([
                 'error' => true
             ]);
