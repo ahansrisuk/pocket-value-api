@@ -18,4 +18,7 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
+
+    # Allow all sources to access the API
+    Header Set Access-Control-Allow-Origin "*"
 </IfModule>
