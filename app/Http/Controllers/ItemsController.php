@@ -12,7 +12,8 @@ class ItemsController extends Controller
 
     public function index()
     {
-        $items = Item::all();
+        // get all items with 'type' relation;
+        $items = Item::with('type')->get();
 
         return response()->json($items);
     }

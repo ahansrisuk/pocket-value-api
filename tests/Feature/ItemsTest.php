@@ -54,14 +54,13 @@ class ItemsTest extends TestCase
         
     }
 
-        /** @test */
-        public function it_fails_gracefully_when_item_name_is_not_found()
-        {
-            $this->get('/api/items/search', ['itemName' => 'made up item'])
-            ->seeJson([
-                'error' => true
-            ]);
-            
-        }
-
+    /** @test */
+    public function it_fails_gracefully_when_item_name_is_not_found()
+    {
+        $this->get('/api/items/search', ['itemName' => 'made up item'])
+        ->seeJson([
+            'error' => true
+        ]);
+        
+    }
 }
