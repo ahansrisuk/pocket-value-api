@@ -10,10 +10,10 @@
 | and give it the Closure to call when that URI is requested.
 |
 */
-$router->get('/api', function() {
+$router->get('/', function() {
     return response()->json(['message' => 'this is the app root']);
 });
 
-$router->get('/api/items', 'ItemsController@index');
-$router->get('/api/items/search', 'ItemsController@retrieveByItemName');
-$router->get('/api/items/{itemId}', 'ItemsController@retrieveByItemId');
+$router->get('/items', 'ItemsController@index');
+$router->get('/items/search', 'ItemsController@retrieveByItemName');
+$router->get('/items/{itemId}', 'ItemsController@retrieveByItemId');
