@@ -16,7 +16,7 @@ class ItemsTest extends TestCase
         $type = factory(Type::class)->create(['name' => 'fish']);
         $item = factory(Item::class)->create(['type_id' => $type->id]);
 
-        $this->get('/api/items/' . $item->id)
+        $this->get('/items/' . $item->id)
             ->seeJson([
                 'id' => $item->id,
                 'name' => $item->name,
@@ -30,7 +30,7 @@ class ItemsTest extends TestCase
     /** @test */
     public function it_fails_gracefully_when_item_id_is_not_found()
     {
-        $this->get('/api/items/' . '55555')
+        $this->get('/items/' . '55555')
             ->seeJson([
                 'error' => true
             ]);
@@ -43,7 +43,7 @@ class ItemsTest extends TestCase
         $type = factory(Type::class)->create(['name' => 'fish']);
         $item = factory(Item::class)->create(['type_id' => $type->id]);
 
-        $this->get('/api/items/search?name=' . $item->name)
+        $this->get('/items/search?name=' . $item->name)
             ->seeJson([
                 'id' => $item->id,
                 'name' => $item->name,
@@ -57,7 +57,7 @@ class ItemsTest extends TestCase
     /** @test */
     public function it_fails_gracefully_when_item_name_is_not_found()
     {
-        $this->get('/api/items/search', ['itemName' => 'made up item'])
+        $this->get('/items/search', ['itemName' => 'made up item'])
         ->seeJson([
             'error' => true
         ]);

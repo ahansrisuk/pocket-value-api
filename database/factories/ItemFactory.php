@@ -22,6 +22,7 @@ $factory->define(Item::class, function (Faker $faker) {
         'type_id' => $faker->randomDigitNotNull,
         'value' => $faker->numberBetween(1, 5000),
         'image_path' => $faker->imageUrl(),
-        'location_id' => $faker->numberBetween(1, 5000)
+        'location_id' => $faker->numberBetween(1, 5000),
+        'time_id' => $faker->numberBetween(1, 5000)
     ];
 });

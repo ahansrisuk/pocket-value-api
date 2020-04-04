@@ -14,6 +14,7 @@ class ItemsController extends Controller
         $items = 
             Item::with('type')
                 ->with('location')
+                ->with('time')
                 ->orderBy('name')->get();
 
         return response()->json($items);

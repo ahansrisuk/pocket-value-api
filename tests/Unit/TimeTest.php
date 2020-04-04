@@ -11,9 +11,9 @@ class TimeTest extends TestCase
 
     /** @test */
     public function it_has_items() {
-        $type = factory(Time::class)->create();
+        $time = factory(Time::class)->create();
         $items = factory(Item::class, 5)->create(['time_id' => $time->id]);
 
-        $this->assertEquals($type->items()->count(), $items->count());
+        $this->assertEquals($time->items()->count(), $items->count());
     }
 }
