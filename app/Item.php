@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Type;
+use App\Location;
 
 class Item extends Model
 {
@@ -19,6 +20,11 @@ class Item extends Model
     public function type() 
     {
         return $this->belongsTo(Type::class);
+    }
+
+    public function location()
+    {
+        return $this->belongsTo(Location::class);
     }
 
 }

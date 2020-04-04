@@ -6,14 +6,15 @@ use App\Item;
 use Illuminate\Http\Request;
 use \Exception;
 
-
 class ItemsController extends Controller
 {
-
     public function index()
     {
         // get all items with 'type' relation alphabetically;
-        $items = Item::with('type')->orderBy('name')->get();
+        $items = 
+            Item::with('type')
+                ->with('location')
+                ->orderBy('name')->get();
 
         return response()->json($items);
     }

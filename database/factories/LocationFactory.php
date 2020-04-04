@@ -2,7 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Item;
+use App\Location;
 use Faker\Generator as Faker;
 
 /*
@@ -16,12 +16,8 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(Item::class, function (Faker $faker) {
+$factory->define(Location::class, function (Faker $faker) {
     return [
-        'name' => $faker->name,
-        'type_id' => $faker->randomDigitNotNull,
-        'value' => $faker->numberBetween(1, 5000),
-        'image_path' => $faker->imageUrl(),
-        'location_id' => $faker->numberBetween(1, 5000)
+        'name' => 'River (Mouth)',
     ];
 });

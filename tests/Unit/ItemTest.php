@@ -30,9 +30,17 @@ class ItemTest extends TestCase
         $this->assertNotNull($item->value);
     }
 
+    /** @test */
     public function it_has_an_image()
     {
         $item = factory(Item::class)->create();
         $this->assertNotNull($item->image_path);
+    }
+
+    /** @test */
+    public function it_has_a_location()
+    {
+        $item = factory(Item::class)->create();
+        $this->assertNotNull($item->location_id);
     }
 }
