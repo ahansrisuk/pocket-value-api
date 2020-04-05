@@ -23,7 +23,8 @@ class ItemsController extends Controller
                 'time' => $item->time->period,
                 'value' => $item->value,
                 'northern_months' => $item->northernMonths(),
-                'southern_months' => $item->southernMonths()
+                'southern_months' => $item->southernMonths(),
+                'image_path' => $item->image_path
             ];
             
             array_push($response, $entry);
