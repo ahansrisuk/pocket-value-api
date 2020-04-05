@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMonthsTable extends Migration
+class AddSouthernMonthsToItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class CreateMonthsTable extends Migration
      */
     public function up()
     {
-        Schema::create('months', function (Blueprint $table) {
-            $table->id();
-            $table->string('month_name');
+        Schema::table('items', function (Blueprint $table) {
+           $table->string('southern_months')->after('northern_months')->nullable();
         });
     }
 
@@ -26,6 +25,8 @@ class CreateMonthsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('months');
+        Schema::table('items', function (Blueprint $table) {
+           $table->dropColumn('southern_months'); 
+        });
     }
 }

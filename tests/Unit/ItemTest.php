@@ -43,4 +43,12 @@ class ItemTest extends TestCase
         $item = factory(Item::class)->create();
         $this->assertNotNull($item->location_id);
     }
+
+    /** @test */
+    public function it_has_months()
+    {
+        $item = factory(Item::class)->create(['northern_months' => 'January,February']);
+
+        $this->assertContains('February', $item->northernMonths());
+    }
 }

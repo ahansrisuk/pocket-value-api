@@ -23,6 +23,8 @@ $factory->define(Item::class, function (Faker $faker) {
         'value' => $faker->numberBetween(1, 5000),
         'image_path' => $faker->imageUrl(),
         'location_id' => $faker->numberBetween(1, 5000),
-        'time_id' => $faker->numberBetween(1, 5000)
+        'time_id' => $faker->numberBetween(1, 5000),
+        'northern_months' => $faker->month, 
+        'southern_months' => $faker->month 
     ];
 });
