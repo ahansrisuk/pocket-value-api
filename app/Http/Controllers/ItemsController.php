@@ -11,13 +11,26 @@ class ItemsController extends Controller
     public function index()
     {
         // get all items with 'type' relation alphabetically;
-        $items = 
-            Item::with('type')
-                ->with('location')
-                ->with('time')
-                ->orderBy('name')->get();
+        $items = Item::all()->sortByDesc('name');
+        $response = [];
 
-        return response()->json($items);
+        foreach ($items as $item) {
+            $entry = [
+                'id' => $item->id,
+                'name' => $item->name,
+                'type' => $item->type->name,
+                'location' => $item->location->name,
+                'time' => $item->time->period,
+                'value' => $item->value,
+                'northern_months' => $item->northernMonths(),
+                'southern_months' => $item->southernMonths()
+            ];
+            
+            array_push($response, $entry);
+
+        }
+
+        return response()->json($response);
     }
     
     /**
