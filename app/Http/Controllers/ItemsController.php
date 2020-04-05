@@ -11,7 +11,7 @@ class ItemsController extends Controller
     public function index()
     {
         // get all items with 'type' relation alphabetically;
-        $items = Item::all()->sortByDesc('name');
+        $items = Item::all()->sortBy('name');
         $response = [];
 
         foreach ($items as $item) {
